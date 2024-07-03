@@ -122,7 +122,7 @@ if "messages" not in st.session_state:
 # User input via chat input
 user_input = st.chat_input("Ask a question about the data...")
 
-st.sidebar.title("Options")
+
 
 
 
