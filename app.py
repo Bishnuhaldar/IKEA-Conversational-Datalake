@@ -17,9 +17,12 @@ generation_config = {
     "top_k": 64,
     "max_output_tokens": 8192,
 }
+# Fetch the service account key from Streamlit secrets
+service_account_info = st.secrets["GCP_SERVICE_ACCOUNT_KEY"]
+credentials = service_account.Credentials.from_service_account_info(service_account_info)
 
-# Load credentials from service account file
-credentials = service_account.Credentials.from_service_account_file('data-driven-cx.json')
+# # Load credentials from service account file
+# credentials = service_account.Credentials.from_service_account_file('data-driven-cx.json')
 
 # Set up BigQuery client
 project_id = 'data-driven-cx'
