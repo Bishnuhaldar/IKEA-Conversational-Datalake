@@ -253,36 +253,47 @@ for message in st.session_state.messages:
 
 
 # Visualization section
-if 'data' in locals() and not data.empty:
-    st.write("## Data Visualization")
+if "messages" in st.session_state:
+    # Find the last message that contains results
+    last_data = None
+    for message in reversed(st.session_state.messages):
+        if "results" in message:
+            last_data = message["results"]
+            break
+    
+    if last_data is not None and not last_data.empty:
+        st.write("## Data Visualization")
 
-    numeric_columns = data.select_dtypes(include=['float64', 'int64']).columns
-    non_numeric_columns = data.select_dtypes(exclude=['float64', 'int64']).columns
+        numeric_columns = last_data.select_dtypes(include=['float64', 'int64']).columns
+        non_numeric_columns = last_data.select_dtypes(exclude=['float64', 'int64']).columns
 
-    for chart_type, selected in chart_types.items():
-        if selected:
-            st.write(f"### {chart_type}")
-            if chart_type == "Bar Chart" and len(numeric_columns) >= 1 and len(non_numeric_columns) >= 1:
-                fig = px.bar(data, x=non_numeric_columns[0], y=numeric_columns[0], color=non_numeric_columns[0])
-                st.plotly_chart(fig)
-            elif chart_type == "Pie Chart" and len(numeric_columns) >= 1 and len(non_numeric_columns) >= 1:
-                fig = px.pie(data, values=numeric_columns[0], names=non_numeric_columns[0])
-                st.plotly_chart(fig)
-            elif chart_type == "Line Chart" and len(numeric_columns) >= 1 and len(non_numeric_columns) >= 1:
-                fig = px.line(data, x=non_numeric_columns[0], y=numeric_columns[0])
-                st.plotly_chart(fig)
-            elif chart_type == "Histogram" and len(numeric_columns) >= 1:
-                fig = px.histogram(data, x=numeric_columns[0])
-                st.plotly_chart(fig)
-            elif chart_type == "Radar Chart" and len(numeric_columns) > 1:
-                fig = go.Figure()
-                fig.add_trace(go.Scatterpolar(
-                    r=data[numeric_columns].mean().values,
-                    theta=numeric_columns,
-                    fill='toself'
-                ))
-                fig.update_layout(polar=dict(radialaxis=dict(visible=True)))
-                st.plotly_chart(fig)
-            else:
-                st.warning(f"Not enough appropriate columns to plot a {chart_type}.")
+        for chart_type, selected in chart_types.items():
+            if selected:
+                st.write(f"### {chart_type}")
+                if chart_type == "Bar Chart" and len(numeric_columns) >= 1 and len(non_numeric_columns) >= 1:
+                    fig = px.bar(last_data, x=non_numeric_columns[0], y=numeric_columns[0], color=non_numeric_columns[0])
+                    st.plotly_chart(fig)
+                elif chart_type == "Pie Chart" and len(numeric_columns) >= 1 and len(non_numeric_columns) >= 1:
+                    fig = px.pie(last_data, values=numeric_columns[0], names=non_numeric_columns[0])
+                    st.plotly_chart(fig)
+                elif chart_type == "Line Chart" and len(numeric_columns) >= 1 and len(non_numeric_columns) >= 1:
+                    fig = px.line(last_data, x=non_numeric_columns[0], y=numeric_columns[0])
+                    st.plotly_chart(fig)
+                elif chart_type == "Histogram" and len(numeric_columns) >= 1:
+                    fig = px.histogram(last_data, x=numeric_columns[0])
+                    st.plotly_chart(fig)
+                elif chart_type == "Radar Chart" and len(numeric_columns) > 1:
+                    fig = go.Figure()
+                    fig.add_trace(go.Scatterpolar(
+                        r=last_data[numeric_columns].mean().values,
+                        theta=numeric_columns,
+                        fill='toself'
+                    ))
+                    fig.update_layout(polar=dict(radialaxis=dict(visible=True)))
+                    st.plotly_chart(fig)
+                else:
+                    st.warning(f"Not enough appropriate columns to plot a {chart_type}.")
+    else:
+        st.write("")
+
 
