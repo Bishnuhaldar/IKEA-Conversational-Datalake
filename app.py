@@ -402,8 +402,8 @@ if user_input:
         
         with st.spinner("Please Wait..."):
             result = qgen(prompt)
-            st.write(result)
-            
+            st.session_state.messages.append({"role": "assistant", "content": user_input, "results": result})
+
     
     else:
         my_prompt = f"""act as a sql query writer for BigQuery database. We have the following schema:
@@ -441,14 +441,16 @@ if user_input:
                     st.session_state.messages.append({"role": "assistant", "content": edited_sql, "results": data})
                     st.session_state.editable_sql = edited_sql
 
-        # Display all the chat messages
-        for message in st.session_state.messages:
-            if message["role"] == "system":
-                continue
-            with st.chat_message(message["role"]):
-                st.markdown(f"<div class='card'>{message['content']}</div>", unsafe_allow_html=True)
-                if "results" in message:
-                    st.dataframe(message["results"])
+# Display all the chat messages
+for message in st.session_state.messages:
+    if message["role"] == "system":
+        continue
+    with st.chat_message(message["role"]):
+        st.markdown(f"<div class='card'>{message['content']}</div>", unsafe_allow_html=True)
+        if "results" in message:
+            st.dataframe(message["results"])
+        if "summary" in message:
+            st.write(message["summary"])
 
 
 
