@@ -411,9 +411,9 @@ if user_input:
         
         if i in user_input.strip().lower() :
             mock_question=True
-            prompt=f"""a user is asking questions. user questions={user_input}
+           prompt=f"""a user is asking questions. user questions={user_input}
             
-            answer the user on the basis of following following question answer. write full answer as it is with data(table).dont make any changes in answer.
+            answer the user on the basis of following following question answer. write full answer of question {user_input} as it is with data(table).dont make any changes in answer.
             {answers}.
             #########################
             dont add any additional comment just answer the questions if answer having table u can use table with answers.
