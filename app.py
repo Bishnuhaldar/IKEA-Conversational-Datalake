@@ -202,205 +202,636 @@ chart_types = {
 
 limit = st.sidebar.slider('Limit Of Output', 0, 100, 10)
 
-questions=['what are the potential options to reduce churn?','what are the options to bring down marketing costs?','key options to increase customer satisfaction','how to increase customer acquisition?','how to reduce acquisition cost?']
+questions=['what are the potential options to reduce churn by 2%','what are the options to bring down marketing costs','key options to increase customer satisfaction','how to increase customer acquisition by 20%','how to reduce acquisition cost','how to increase retention','increase market share & profitability','what was the total sales revenue for the last quarter','can you segment our customers based on their purchase frequency','what are our most frequent purchasers buying that our least frequent purchasers aren’t',
+           'are there any other distinguishing factors between the purchase frequency segments','what is the overall sentiment of our customer reviews','can you summarize the key points of feedback from our customer reviews','is there any missing data or other questions that we should be asking for customer feedback on that could improve analysis']
 answers="""
+#########################################################################
 
-###################################################################
-1. What are the potential options to reduce churn?
+What are the potential options to reduce churn by 2%? 
 
-answer-
+Churn Analysis Overview 
 
-Churn Analysis Overview
+Churn Reason 
 
-Churn Reason Number of Customers Percentage of Total Churned
+Number of Customers 
 
-Product Quality 500 25%
+Percentage of Total Churned 
 
-Poor Customer Service 400 20%
+Product Quality 
 
-High Costs 300 15%
+500 
 
-Lack of Product
+25% 
 
-Availability 250 12.5%
+Poor Customer Service 
 
-Delivery Issues 200 10%
+400 
 
-Step 1: Identify Key Churn Drivers
+20% 
 
-The top three reasons for churn account for 60% of total churn:
+High Costs 
 
-1. Product Quality (25%)
+300 
 
-2. Poor Customer Service (20%)
+15% 
 
-3. High Costs (15%)
+Lack of Product Availability 
 
-Step 2: Suggested Strategies to Reduce Churn
+250 
 
-1. Improve Product Quality
+12.5% 
 
-2. Enhance Customer Service
+Delivery Issues 
 
-3. Address High Costs
-###################################################################
-2. What are the options to bring down marketing costs?
+200 
 
-answer-
+10% 
 
+Identify Key Churn Drivers 
 
-Initial Marketing Spend Across Channels:
+The top three reasons for churn account for 60% of total churn: 
 
-· Digital Ads: $500,000
+Product Quality (25%) 
 
-· In-Store Promotions: $200,000
+Poor Customer Service (20%) 
 
-· Email Campaigns: $150,000
+High Costs (15%) 
 
-· Social Media Ads: $100,000
+ 
 
-Ways to optimization
+Suggested Strategies to Reduce Churn 
 
-· Targeted Campaigns: by focusing on high-value customers.
+1. Improve Product Quality 
 
-· Digital Advertising Efficiency: by reallocating budget from low-conversion channels.
+2. Enhance Customer Service 
 
-· In-Store and Online Integration: unified campaign efforts.
+3. Address High Costs 
 
-· Social Media Optimization: by leveraging user-generated content.
 
-###################################################################
+######################################################
 
-3. Key options to increase customer satisfaction
+What are the options to bring down marketing costs? 
 
-answer-
+ Initial Marketing Spend Across Channels: 
 
+Digital Ads: $500,000 
 
-Customer Complaints Number of Customers
+In-Store Promotions: $200,000 
 
-Product Quality 500
+Email Campaigns: $150,000 
 
-Poor Customer Service 400
+Social Media Ads: $100,000 
 
-Payment Issues 300
+Ways to optimize marketing costs are 
 
-Inflexible returns policy 250
+Targeted Campaigns: by focusing on high-value customers. 
 
-Delivery Issues 200
+Digital Advertising Efficiency: by reallocating budget from low-conversion channels. 
 
+In-Store and Online Integration: unified campaign efforts. 
 
+Social Media Optimization: by leveraging user-generated content. 
 
-Based on feedback & complaints from customers, the top 5 options to increase customer satisfaction are
 
-Enhance Product Quality
+##########################################################
 
-Improve Customer Service
+Key options to increase customer satisfaction 
 
-Flexible Payment and Shipping Options
+ 
 
-User-Friendly Returns Policy
+Customer Complaints 
 
-Streamlined Shipping process
+Number of Customers 
 
-###################################################################
+Product Quality 
 
-4. How to increase customer acquisition?
+500 
 
-answer-
+Poor Customer Service 
 
+400 
 
-Summary of Conversion Rates
+Payment Issues 
 
-Channel Leads New Customers Conversion Rate
+300 
 
-Social Media 10,000 1,000 10%
+Inflexible returns policy 
 
-Email Marketing 8,000 800 10%
+250 
 
-Paid Advertising 12,000 1,200 10%
+Delivery Issues 
 
-Referral Program 5,000 600 12%
+200 
 
-Content Marketing 15,000 750 5%
+ 
 
+ 
 
-Enhance the referral program and increase the incentives,
+Based on feedback & complaints from customers, the top 5 options to increase customer satisfaction are 
 
-###################################################################
+Enhance Product Quality 
 
+Improve Customer Service 
 
-5. How to reduce acquisition cost?
+Flexible Payment and Shipping Options 
 
-answer-
+User-Friendly Returns Policy 
 
+Streamlined Shipping process 
 
-Summary of Customer Acquisition Costs
+ 
 
-Channel New Customers Marketing Spend ($) CAC ($)
+#######################################################
 
-Social Media 1,000 10,000 10
+How to increase customer acquisition by 20%? 
 
-Email Marketing 800 8,000 10
+Summary of Conversion Rates 
 
-Paid Advertising 1,200 15,000 12.50
+Channel 
 
-Referral Program 600 3,000 5
+Leads 
 
-Content Marketing 750 5,000 6.67
+New Customers 
 
-Referral Program has the lowest CAC at $5, while Paid Advertising has the highest CAC at $12.50.
+Conversion Rate 
 
-1. Enhance the Referral Program & Increase Incentives:
+Social Media 
 
-2. Optimize Paid Advertising & improve targeting
+10,000 
 
-3. Leverage Email Marketing using segmented campaigns & personalization
+1,000 
 
-4. Boost Content Marketing Efficiency by optimizing content for search engines
+10% 
 
-5. Analyze and Reallocate Budget from paid advertising to referral & content
+Email Marketing 
 
-6. How to increase retention
+8,000 
 
-Metric Value
+800 
 
-Total Customers 50,000
+10% 
 
-Customers Active Last Year 40,000
+Paid Advertising 
 
-Customers Retained (1 Year) 30,000
+12,000 
 
-Retention Rate
+1,200 
 
-Average Customer Lifetime (Years) 5
+10% 
 
-Average Purchase Frequency (Annual) 3
+Referral Program 
 
-Average Purchase Value $100
+5,000 
 
-Customer Lifetime Value (CLV) 100×3×5=1500
+600 
 
-By analyzing the customer segments,
+12% 
 
-· New Customers (1st Year): 10,000 (Retention Rate: 60%)
+Content Marketing 
 
-· Existing Customers (2+ Years): 30,000 (Retention Rate: 80%)
+15,000 
 
-· High-Value Customers: 5,000 (Retention Rate: 90%)
+750 
 
-· Low-Value Customers: 45,000 (Retention Rate: 70%)
+5% 
 
-Step 3: Strategies to Increase Retention Rate
+ 
 
-1. Enhance new Customer Engagement
+Enhance the referral program and increase the incentives to increase the customer acquisition 
 
-2. Improve Customer Service
+ 
 
-3. Implement high-value customer loyalty program
+##################################################
+How to reduce acquisition cost? 
 
-4. Regular Feedback Collection
+Summary of Customer Acquisition Costs 
 
-5. Personalized Marketing Offersd
+Channel 
+
+New Customers 
+
+Marketing Spend ($) 
+
+CAC ($) 
+
+Social Media 
+
+1,000 
+
+10,000 
+
+10 
+
+Email Marketing 
+
+800 
+
+8,000 
+
+10 
+
+Paid Advertising 
+
+1,200 
+
+15,000 
+
+12.50 
+
+Referral Program 
+
+600 
+
+3,000 
+
+5 
+
+Content Marketing 
+
+750 
+
+5,000 
+
+6.67 
+
+Referral Program has the lowest CAC at $5, while Paid Advertising has the highest CAC at $12.50. 
+
+Enhance the Referral Program & Increase Incentives:  
+
+Optimize Paid Advertising & improve targeting 
+
+Leverage Email Marketing using segmented campaigns & personalization 
+
+Boost Content Marketing Efficiency by optimizing content for search engines 
+
+Analyze and Reallocate Budget from paid advertising to referral & content  
+
+
+############################################################ 
+
+How to increase retention? 
+
+Metric 
+
+Value 
+
+Total Customers 
+
+50,000 
+
+Customers Active Last Year 
+
+40,000 
+
+Customers Retained (1 Year) 
+
+30,000 
+
+Retention Rate 
+
+ 
+
+Average Customer Lifetime (Years) 
+
+5 
+
+Average Purchase Frequency (Annual) 
+
+3 
+
+Average Purchase Value 
+
+$100 
+
+Customer Lifetime Value (CLV) 
+
+100×3×5=1500 
+
+By analyzing the customer segments,  
+
+New Customers (1st Year): 10,000 (Retention Rate: 60%) 
+
+Existing Customers (2+ Years): 30,000 (Retention Rate: 80%) 
+
+High-Value Customers: 5,000 (Retention Rate: 90%) 
+
+Low-Value Customers: 45,000 (Retention Rate: 70%) 
+
+Strategies to Increase Retention Rate 
+
+Enhance new Customer Engagement 
+
+Improve Customer Service 
+
+Implement high-value customer loyalty program 
+
+Regular Feedback Collection 
+
+Personalized Marketing Offers 
+
+
+
+############################################################ 
+
+Increase market share & profitability 
+
+·  Total Customers: 50,000 
+
+·  Customer Segments: 
+
+New Customers (Last 12 months): 15,000 
+
+Returning Customers (2+ purchases): 25,000 
+
+Churned Customers (Last year): 10,000 
+
+Active Customers: 40,000 
+
+·  Average Order Value (AOV): $50 
+
+·  Annual Revenue: $2,500,000 
+
+·  Average Purchase Frequency: 2 times/year 
+
+·  Customer Lifetime Value (CLV): $100 
+
+·  Market Share: 5% of local retail market 
+
+Strategies to Increase Market Share and Profitability 
+
+1. Customer Acquisition and Segmentation: Targeted Marketing Campaigns -  Focus on the 15,000 new customers and increase acquisition by 20%. 
+
+2.Retention Strategies: Reduce Churn by 2% 
+
+3. Increasing Purchase Frequency: Encourage Existing Customers to Purchase More Often: 
+
+4.Loyalty Programs: Introduce a Loyalty Program 
+
+  
+
+################################################################################
+
+What was the total sales revenue for the last quarter? 
+
+Total Customers: 50,000 
+
+Active Customers: 40,000 
+
+Average Order Value (AOV): $50 
+
+Average Purchase Frequency: 2 times/year 
+
+Quarterly Revenue Calculation 
+
+Since the average purchase frequency is 2 times per year, we can determine the average quarterly purchases: 
+
+Total Sales Revenue for the Last Quarter 
+
+The total sales revenue for the last quarter is $1,000,000. 
+
+  
+
+############################################################## 
+
+Can you segment our customers based on their purchase frequency? 
+
+  
+
+Segment 
+
+Description 
+
+Estimated Size 
+
+Non-Purchasers 
+
+0 Purchases 
+
+10,000 
+
+Light Buyers 
+
+1 Purchase per Year 
+
+10,000 
+
+Moderate Buyers 
+
+2 Purchases per Year 
+
+15,000 
+
+Frequent Buyers 
+
+3-4 Purchases per Year 
+
+10,000 
+
+Highly Engaged Customers 
+
+5+ Purchases per Year 
+
+5,000 
+
+  
+
+#############################################################################
+
+What are our most frequent purchasers buying that our least frequent purchasers aren’t? 
+
+Product Category 
+
+Frequent Purchasers (5,000) 
+
+Least Frequent Purchasers (20,000) 
+
+Core Products 
+
+Multiple brands of essentials (e.g., various cereals, snacks) 
+
+One-off purchase of essentials 
+
+Seasonal Products 
+
+Seasonal apparel, holiday decorations 
+
+Minimal seasonal purchases, if any 
+
+Promotional Bundles 
+
+Engaging with buy-one-get-one offers, multi-pack snacks 
+
+Rarely buy bundles, preferring single items 
+
+High-Value Items 
+
+Electronics, larger household items during promotions 
+
+Typically avoid high-value purchases unless necessary 
+
+  
+  
+
+##################################################
+
+Are there any other distinguishing factors between the purchase frequency segments? 
+
+Factor 
+
+Frequent Purchasers 
+
+Least Frequent Purchasers 
+
+Demographics 
+
+Younger, families, higher income 
+
+Older, varied income levels 
+
+Shopping Channel 
+
+Prefer online shopping 
+
+Favor in-store shopping 
+
+Behavioral Patterns 
+
+Highly responsive to promotions 
+
+Less responsive to promotions 
+
+Customer Engagement 
+
+Higher email engagement 
+
+Lower email engagement 
+
+Lifetime Value 
+
+Higher CLV, lower churn rates 
+
+Lower CLV, higher churn rates 
+
+Brand Loyalty 
+
+Strong brand affinity 
+
+More brand experimentation 
+
+ Seasonal Trends 
+
+Actively participate in seasonal sales 
+
+Limited participation in seasonal sales 
+
+  
+
+
+ ###############################################################
+
+What is the overall sentiment of our customer reviews? 
+
+  
+
+·  Positive Reviews: 700 (70%) 
+
+·  Neutral Reviews: 200 (20%) 
+
+·  Negative Reviews: 100 (10%) 
+
+Overall Sentiment score = 0.6 which indicates positive sentiment 
+
+  
+
+#################################################################
+
+Can you summarize the key points of feedback from our customer reviews? 
+
+Key Points of Customer Feedback 
+
+Positive Feedback 
+
+Product Quality 
+
+Many customers praised the quality of the products, noting that they met or exceeded expectations. High-quality essentials and seasonal items were frequently highlighted. 
+
+Customer Service 
+
+Positive comments about responsive and helpful customer service representatives. Customers appreciated quick resolutions to issues and friendly interactions. 
+
+User Experience 
+
+Customers found the online shopping experience easy to navigate, with a user-friendly interface and efficient checkout process. 
+
+Promotions and Discounts 
+
+Customers enjoyed the value offered through promotions, particularly buy-one-get-one deals and loyalty rewards. This incentivized them to make additional purchases. 
+
+Fast Delivery 
+
+Many reviews mentioned satisfaction with quick shipping times, which enhanced the overall shopping experience. 
+
+Neutral Feedback 
+
+Product Variety 
+
+Some customers noted the variety of products available but expressed a desire for more options in specific categories, particularly seasonal or specialty items. 
+
+Pricing Concerns 
+
+Neutral comments indicated that while some products were seen as fairly priced, others were perceived as slightly higher than competitors, but customers appreciated the quality. 
+
+Website Features 
+
+Feedback on website features was mixed. While many found the site easy to use, some suggested improvements for better filtering options and product search capabilities. 
+
+Negative Feedback 
+
+Stock Availability 
+
+Several customers expressed frustration about out-of-stock items, particularly during peak shopping seasons. This led to disappointment and potential loss of sales. 
+
+Return Process 
+
+Negative comments highlighted challenges with the return process, including delays and lack of clarity on return policies, which affected customer satisfaction. 
+
+Inconsistent Product Information 
+
+Some customers reported inconsistencies in product descriptions and images compared to the actual items received, leading to dissatisfaction. 
+
+Delivery Issues 
+
+A few reviews mentioned issues with shipping delays or damaged products upon arrival, impacting overall trust in the service. 
+
+  
+
+##################################################################################################################
+
+   
+
+Is there any missing data or other questions that we should be asking for customer feedback on that could improve analysis? 
+
+Additional Questions for Customer Feedback 
+
+Delivery Experience 
+
+ "How would you rate your delivery experience, and what improvements would you suggest?" This can provide specific insights into logistics and fulfillment. 
+
+Interest in New Products 
+
+ "What types of products would you like to see more of in our store?" This helps in inventory planning and product development. 
+
+Feedback on Marketing 
+
+ "How do you prefer to receive promotions and updates from us?" Understanding communication preferences can help optimize marketing strategies. 
+
+Return Experience 
+
+"How would you rate your experience with returns or exchanges?" This is critical for identifying pain points in the return process. 
+
+  
+
+ 
 """
 # Handle user input and query generation
 if user_input:
