@@ -203,7 +203,12 @@ chart_types = {
 limit = st.sidebar.slider('Limit Of Output', 0, 100, 10)
 
 questions=['what are the potential options to reduce churn?','what are the options to bring down marketing costs?','key options to increase customer satisfaction','how to increase customer acquisition?','how to reduce acquisition cost?']
-answers="""1. What are the potential options to reduce churn?
+answers="""
+
+###################################################################
+1. What are the potential options to reduce churn?
+
+answer-
 
 Churn Analysis Overview
 
@@ -238,12 +243,11 @@ Step 2: Suggested Strategies to Reduce Churn
 2. Enhance Customer Service
 
 3. Address High Costs
-
-
-
-
-
+###################################################################
 2. What are the options to bring down marketing costs?
+
+answer-
+
 
 Initial Marketing Spend Across Channels:
 
@@ -265,9 +269,12 @@ Ways to optimization
 
 · Social Media Optimization: by leveraging user-generated content.
 
-
+###################################################################
 
 3. Key options to increase customer satisfaction
+
+answer-
+
 
 Customer Complaints Number of Customers
 
@@ -295,9 +302,12 @@ User-Friendly Returns Policy
 
 Streamlined Shipping process
 
-
+###################################################################
 
 4. How to increase customer acquisition?
+
+answer-
+
 
 Summary of Conversion Rates
 
@@ -316,8 +326,13 @@ Content Marketing 15,000 750 5%
 
 Enhance the referral program and increase the incentives,
 
+###################################################################
+
 
 5. How to reduce acquisition cost?
+
+answer-
+
 
 Summary of Customer Acquisition Costs
 
@@ -385,27 +400,32 @@ Step 3: Strategies to Increase Retention Rate
 
 4. Regular Feedback Collection
 
-5. Personalized Marketing Offersd."""
+5. Personalized Marketing Offersd
+"""
 # Handle user input and query generation
 if user_input:
     
     st.session_state.messages.append({"role": "user", "content": user_input})
-    if user_input.strip().lower() in questions:
-        prompt=f"""a user is asking questions. user questions={user_input}
+    mock_question=False
+    for i in questions:
         
-        answer the user on the basis of following data.
-        {answers}.
-        #########################
-        dont add any additional comment just answer the questions if answer having table u can use table with answers.
-        use bold for heading and bullet points as well for better representaions of answers.
-        """
-        
-        with st.spinner("Please Wait..."):
-            result = qgen(prompt)
-            st.session_state.messages.append({"role": "assistant", "content": user_input, "results": result})
+        if i in user_input.strip().lower() :
+            mock_question=True
+            prompt=f"""a user is asking questions. user questions={user_input}
+            
+            answer the user on the basis of following following question answer. write full answer as it is with data(table).dont make any changes in answer.
+            {answers}.
+            #########################
+            dont add any additional comment just answer the questions if answer having table u can use table with answers.
+            use bold for heading and bullet points as well for better representaions of answers.
+            """
+            
+            with st.spinner("Please Wait..."):
+                result = qgen(prompt)
+                st.session_state.messages.append({"role": "assistant", "content":result, "summary": ''})
 
-    
-    else:
+        
+    if mock_question==False:
         my_prompt = f"""act as a sql query writer for BigQuery database. We have the following schema:
         project_id = "data-driven-cx"
         dataset_id = "EDW_ECOM"
@@ -448,9 +468,10 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(f"<div class='card'>{message['content']}</div>", unsafe_allow_html=True)
         if "results" in message:
-            st.dataframe(message["results"])
-        if "summary" in message:
-            st.write(message["summary"])
+            if not message["results"].empty: 
+                st.dataframe(message["results"])
+        # if "summary" in message:
+        #     st.write(message["summary"])
 
 
 
@@ -471,6 +492,7 @@ if "messages" in st.session_state:
 
         for chart_type, selected in chart_types.items():
             if selected:
+                st.write("## Data Visualization")
                 st.write(f"### {chart_type}")
                 if chart_type == "Bar Chart" and len(numeric_columns) >= 1 and len(non_numeric_columns) >= 1:
                     fig = px.bar(last_data, x=non_numeric_columns[0], y=numeric_columns[0], color=non_numeric_columns[0])
