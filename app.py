@@ -202,53 +202,253 @@ chart_types = {
 
 limit = st.sidebar.slider('Limit Of Output', 0, 100, 10)
 
+questions=['what are the potential options to reduce churn?','what are the options to bring down marketing costs?','key options to increase customer satisfaction','how to increase customer acquisition?','how to reduce acquisition cost?']
+answers="""1. What are the potential options to reduce churn?
+
+Churn Analysis Overview
+
+Churn Reason Number of Customers Percentage of Total Churned
+
+Product Quality 500 25%
+
+Poor Customer Service 400 20%
+
+High Costs 300 15%
+
+Lack of Product
+
+Availability 250 12.5%
+
+Delivery Issues 200 10%
+
+Step 1: Identify Key Churn Drivers
+
+The top three reasons for churn account for 60% of total churn:
+
+1. Product Quality (25%)
+
+2. Poor Customer Service (20%)
+
+3. High Costs (15%)
+
+Step 2: Suggested Strategies to Reduce Churn
+
+1. Improve Product Quality
+
+2. Enhance Customer Service
+
+3. Address High Costs
+
+
+
+
+
+2. What are the options to bring down marketing costs?
+
+Initial Marketing Spend Across Channels:
+
+· Digital Ads: $500,000
+
+· In-Store Promotions: $200,000
+
+· Email Campaigns: $150,000
+
+· Social Media Ads: $100,000
+
+Ways to optimization
+
+· Targeted Campaigns: by focusing on high-value customers.
+
+· Digital Advertising Efficiency: by reallocating budget from low-conversion channels.
+
+· In-Store and Online Integration: unified campaign efforts.
+
+· Social Media Optimization: by leveraging user-generated content.
+
+
+
+3. Key options to increase customer satisfaction
+
+Customer Complaints Number of Customers
+
+Product Quality 500
+
+Poor Customer Service 400
+
+Payment Issues 300
+
+Inflexible returns policy 250
+
+Delivery Issues 200
+
+
+
+Based on feedback & complaints from customers, the top 5 options to increase customer satisfaction are
+
+Enhance Product Quality
+
+Improve Customer Service
+
+Flexible Payment and Shipping Options
+
+User-Friendly Returns Policy
+
+Streamlined Shipping process
+
+
+
+4. How to increase customer acquisition?
+
+Summary of Conversion Rates
+
+Channel Leads New Customers Conversion Rate
+
+Social Media 10,000 1,000 10%
+
+Email Marketing 8,000 800 10%
+
+Paid Advertising 12,000 1,200 10%
+
+Referral Program 5,000 600 12%
+
+Content Marketing 15,000 750 5%
+
+
+Enhance the referral program and increase the incentives,
+
+
+5. How to reduce acquisition cost?
+
+Summary of Customer Acquisition Costs
+
+Channel New Customers Marketing Spend ($) CAC ($)
+
+Social Media 1,000 10,000 10
+
+Email Marketing 800 8,000 10
+
+Paid Advertising 1,200 15,000 12.50
+
+Referral Program 600 3,000 5
+
+Content Marketing 750 5,000 6.67
+
+Referral Program has the lowest CAC at $5, while Paid Advertising has the highest CAC at $12.50.
+
+1. Enhance the Referral Program & Increase Incentives:
+
+2. Optimize Paid Advertising & improve targeting
+
+3. Leverage Email Marketing using segmented campaigns & personalization
+
+4. Boost Content Marketing Efficiency by optimizing content for search engines
+
+5. Analyze and Reallocate Budget from paid advertising to referral & content
+
+6. How to increase retention
+
+Metric Value
+
+Total Customers 50,000
+
+Customers Active Last Year 40,000
+
+Customers Retained (1 Year) 30,000
+
+Retention Rate
+
+Average Customer Lifetime (Years) 5
+
+Average Purchase Frequency (Annual) 3
+
+Average Purchase Value $100
+
+Customer Lifetime Value (CLV) 100×3×5=1500
+
+By analyzing the customer segments,
+
+· New Customers (1st Year): 10,000 (Retention Rate: 60%)
+
+· Existing Customers (2+ Years): 30,000 (Retention Rate: 80%)
+
+· High-Value Customers: 5,000 (Retention Rate: 90%)
+
+· Low-Value Customers: 45,000 (Retention Rate: 70%)
+
+Step 3: Strategies to Increase Retention Rate
+
+1. Enhance new Customer Engagement
+
+2. Improve Customer Service
+
+3. Implement high-value customer loyalty program
+
+4. Regular Feedback Collection
+
+5. Personalized Marketing Offersd."""
 # Handle user input and query generation
 if user_input:
+    
     st.session_state.messages.append({"role": "user", "content": user_input})
+    if user_input.strip().lower() in questions:
+        prompt=f"""a user is asking questions. user questions={user_input}
+        
+        answer the user on the basis of following data.
+        {answers}.
+        #########################
+        dont add any additional comment just answer the questions if answer having table u can use table with answers.
+        use bold for heading and bullet points as well for better representaions of answers.
+        """
+        
+        with st.spinner("Please Wait..."):
+            result = qgen(prompt)
+            st.write(result)
+            
     
-    my_prompt = f"""act as a sql query writer for BigQuery database. We have the following schema:
-    project_id = "data-driven-cx"
-    dataset_id = "EDW_ECOM"
-       {st.session_state.schema[0]}
-    Write a SQL query for user input
-    user input-{user_input}.
-    set limit to {limit}.
-    Write only the executable query without any comments or additional text.
-    """
-    
-    with st.spinner("Generating query..."):
-        final_query = qgen(my_prompt)
-        cleaned_query = final_query.replace("```sql", "").replace("```", "").strip()
-    
-    try:
-        with st.spinner("Executing query..."):
-            data = execute_query(cleaned_query)
-        st.session_state.messages.append({"role": "assistant", "content": final_query, "results": data})
-    except Exception as e:
-        st.error(f"Query execution error: {e}")
-        if "editable_sql" not in st.session_state:
-            st.session_state.editable_sql = final_query
+    else:
+        my_prompt = f"""act as a sql query writer for BigQuery database. We have the following schema:
+        project_id = "data-driven-cx"
+        dataset_id = "EDW_ECOM"
+        {st.session_state.schema[0]}
+        Write a SQL query for user input
+        user input-{user_input}.
+        set limit to {limit}.
+        Write only the executable query without any comments or additional text.
+        """
+        
+        with st.spinner("Generating query..."):
+            final_query = qgen(my_prompt)
+            cleaned_query = final_query.replace("```sql", "").replace("```", "").strip()
+        
+        try:
+            with st.spinner("Executing query..."):
+                data = execute_query(cleaned_query)
+            st.session_state.messages.append({"role": "assistant", "content": final_query, "results": data})
+        except Exception as e:
+            st.error(f"Query execution error: {e}")
+            if "editable_sql" not in st.session_state:
+                st.session_state.editable_sql = final_query
 
-# Display the SQL query editor and execution button if there's a query to edit
-if "editable_sql" in st.session_state:
-    st.write("## Edit and Re-Execute the Query")
-    edited_sql = st.text_area("Edit Query", st.session_state.editable_sql)
-    
-    if st.button('Submit'):
-        with st.spinner("Executing query..."):
-            data = execute_query(edited_sql)
-        if data is not None:
-            st.session_state.messages.append({"role": "assistant", "content": edited_sql, "results": data})
-            st.session_state.editable_sql = edited_sql
+        # Display the SQL query editor and execution button if there's a query to edit
+        if "editable_sql" in st.session_state:
+            st.write("## Edit and Re-Execute the Query")
+            edited_sql = st.text_area("Edit Query", st.session_state.editable_sql)
+            
+            if st.button('Submit'):
+                with st.spinner("Executing query..."):
+                    data = execute_query(edited_sql)
+                if data is not None:
+                    st.session_state.messages.append({"role": "assistant", "content": edited_sql, "results": data})
+                    st.session_state.editable_sql = edited_sql
 
-# Display all the chat messages
-for message in st.session_state.messages:
-    if message["role"] == "system":
-        continue
-    with st.chat_message(message["role"]):
-        st.markdown(f"<div class='card'>{message['content']}</div>", unsafe_allow_html=True)
-        if "results" in message:
-            st.dataframe(message["results"])
+        # Display all the chat messages
+        for message in st.session_state.messages:
+            if message["role"] == "system":
+                continue
+            with st.chat_message(message["role"]):
+                st.markdown(f"<div class='card'>{message['content']}</div>", unsafe_allow_html=True)
+                if "results" in message:
+                    st.dataframe(message["results"])
 
 
 
@@ -295,5 +495,3 @@ if "messages" in st.session_state:
                     st.warning(f"Not enough appropriate columns to plot a {chart_type}.")
     else:
         st.write("")
-
-
