@@ -107,7 +107,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # App title and description
-st.markdown('<h1>Conversational Datalake v1.0🤖</h1>', unsafe_allow_html=True)
+st.markdown('<h1>Conversational Datalake🤖</h1>', unsafe_allow_html=True)
 
 # Path to your logo
 logo_path2 = "gcp+capg+ikea.png"
