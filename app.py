@@ -207,6 +207,8 @@ questions=['what are the potential options to reduce churn by 2%','what are the 
 answers="""
 #########################################################################
 
+########################## 
+
 What are the potential options to reduce churn by 2%? 
 
 Churn Analysis Overview 
@@ -257,18 +259,17 @@ Poor Customer Service (20%)
 
 High Costs (15%) 
 
- 
 
 Suggested Strategies to Reduce Churn 
 
-1. Improve Product Quality 
+1. Improve Product Quality:: Reducing churn due to customer service issues by 40% could retain 160 customers. 
 
-2. Enhance Customer Service 
+2. Enhance Customer Service : Reducing churn due to customer service issues by 40% could retain 160 customers. 
 
-3. Address High Costs 
+3. Address High Costs: If addressing cost-related churn reduces it by 30%, this would retain 90 customers. 
 
 
-######################################################
+################################################################ 
 
 What are the options to bring down marketing costs? 
 
@@ -284,16 +285,18 @@ Social Media Ads: $100,000
 
 Ways to optimize marketing costs are 
 
-Targeted Campaigns: by focusing on high-value customers. 
+Targeted Campaigns: +$100,000 savings by focusing on high-value customers. 
 
-Digital Advertising Efficiency: by reallocating budget from low-conversion channels. 
+Digital Advertising Efficiency: +$75,000 savings by reallocating budget from low-conversion channels. 
 
-In-Store and Online Integration: unified campaign efforts. 
+In-Store and Online Integration: +$50,000 savings from unified campaign efforts. 
 
-Social Media Optimization: by leveraging user-generated content. 
+Social Media Optimization: +$30,000 savings by leveraging user-generated content. 
 
+Total Projected Cost Reduction: $355,000 
+ 
 
-##########################################################
+################################################################ 
 
 Key options to increase customer satisfaction 
 
@@ -323,25 +326,19 @@ Delivery Issues
 
 200 
 
- 
-
- 
-
 Based on feedback & complaints from customers, the top 5 options to increase customer satisfaction are 
 
-Enhance Product Quality 
+Enhance Product Quality: Reducing product returns by 5% on a customer base of 50,000 could retain approximately 2,500 customers. 
 
-Improve Customer Service 
+Improve Customer Service: If current satisfaction scores correlate to a customer retention of 75%, improving this to 85% could increase overall satisfaction-related retention by 10%. 
 
-Flexible Payment and Shipping Options 
+Flexible Payment and Shipping Options: If the current conversion rate results in 7,500 sales, increasing this to 12,500 could add another 5,000 transactions annually, equating to $500,000 in additional sales. 
 
-User-Friendly Returns Policy 
+User-Friendly Returns Policy: A 15% reduction in dissatisfaction could lead to retaining an additional 1,000 customers. 
 
-Streamlined Shipping process 
+Streamlined Shipping process: Introduce multiple payment methods and flexible shipping options. 
 
- 
-
-#######################################################
+################################################################ 
 
 How to increase customer acquisition by 20%? 
 
@@ -399,9 +396,8 @@ Content Marketing
 
 Enhance the referral program and increase the incentives to increase the customer acquisition 
 
- 
+################################################################ 
 
-##################################################
 How to reduce acquisition cost? 
 
 Summary of Customer Acquisition Costs 
@@ -466,8 +462,60 @@ Boost Content Marketing Efficiency by optimizing content for search engines
 
 Analyze and Reallocate Budget from paid advertising to referral & content  
 
+: If you move $5,000 from paid advertising (higher CAC) to the referral program, the referral program can potentially acquire more customers at a lower CAC. 
 
-############################################################ 
+Using these strategies can provide significant reductions in CAC across channels. Here’s a summary of projected changes: 
+
+Channel 
+
+New Customers (Projected) 
+
+Marketing Spend ($) 
+
+Projected CAC ($) 
+
+Social Media 
+
+1,000 
+
+10,000 
+
+10 
+
+Email Marketing 
+
+920 
+
+8,000 
+
+8.70 
+
+Paid Advertising 
+
+1,500 
+
+15,000 
+
+10 
+
+Referral Program 
+
+720 
+
+3,000 
+
+4.17 
+
+Content Marketing 
+
+900 
+
+5,000 
+
+5.56 
+
+
+################################################################ 
 
 How to increase retention? 
 
@@ -519,19 +567,16 @@ Low-Value Customers: 45,000 (Retention Rate: 70%)
 
 Strategies to Increase Retention Rate 
 
-Enhance new Customer Engagement 
+Enhance new Customer Engagement: Targeting engaged customers could increase retention from 60% to 70% for new customers. 
 
-Improve Customer Service 
+Improve Customer Service: Improving service could increase retention of low-value customers from 70% to 80% 
 
-Implement high-value customer loyalty program 
+Implement high-value customer loyalty program: If high-value customers can be encouraged to purchase more frequently, improving retention from 90% to 95%, 
 
-Regular Feedback Collection 
+Regular Feedback Collection: For all segments, the average retention rate could improve to 80% 
 
-Personalized Marketing Offers 
-
-
-
-############################################################ 
+Personalized Marketing Offers: Personalized offers could improve retention from 75% to 85% overall 
+################################################################ 
 
 Increase market share & profitability 
 
@@ -567,9 +612,7 @@ Strategies to Increase Market Share and Profitability
 
 4.Loyalty Programs: Introduce a Loyalty Program 
 
-  
-
-################################################################################
+################################################################ 
 
 What was the total sales revenue for the last quarter? 
 
@@ -589,9 +632,7 @@ Total Sales Revenue for the Last Quarter
 
 The total sales revenue for the last quarter is $1,000,000. 
 
-  
-
-############################################################## 
+################################################################ 
 
 Can you segment our customers based on their purchase frequency? 
 
@@ -633,10 +674,8 @@ Highly Engaged Customers
 
 5,000 
 
-  
 
-#############################################################################
-
+################################################################
 What are our most frequent purchasers buying that our least frequent purchasers aren’t? 
 
 Product Category 
@@ -669,10 +708,8 @@ Electronics, larger household items during promotions
 
 Typically avoid high-value purchases unless necessary 
 
-  
-  
 
-##################################################
+####################################################  
 
 Are there any other distinguishing factors between the purchase frequency segments? 
 
@@ -724,14 +761,9 @@ Actively participate in seasonal sales
 
 Limited participation in seasonal sales 
 
-  
-
-
- ###############################################################
+ #################################################### 
 
 What is the overall sentiment of our customer reviews? 
-
-  
 
 ·  Positive Reviews: 700 (70%) 
 
@@ -743,7 +775,7 @@ Overall Sentiment score = 0.6 which indicates positive sentiment
 
   
 
-#################################################################
+#################################################### 
 
 Can you summarize the key points of feedback from our customer reviews? 
 
@@ -803,11 +835,8 @@ Delivery Issues
 
 A few reviews mentioned issues with shipping delays or damaged products upon arrival, impacting overall trust in the service. 
 
-  
-
-##################################################################################################################
-
-   
+####################################################
+  
 
 Is there any missing data or other questions that we should be asking for customer feedback on that could improve analysis? 
 
@@ -827,11 +856,9 @@ Feedback on Marketing
 
 Return Experience 
 
-"How would you rate your experience with returns or exchanges?" This is critical for identifying pain points in the return process. 
+ "How would you rate your experience with returns or exchanges?" This is critical for identifying pain points in the return process. 
 
-  
 
- 
 """
 # Handle user input and query generation
 if user_input:
