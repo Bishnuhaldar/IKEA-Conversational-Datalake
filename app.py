@@ -139,7 +139,9 @@ if user_input:
         try:
             with st.spinner("Executing query..."):
                 data = execute_query(cleaned_query)
-            st.session_state.messages.append({"role": "assistant", "content": final_query, "results": data})
+            
+            st.session_state.messages.append({"role": "user", "content": user_input})
+            st.session_state.messages.append({"role": "assistant", "content": cleaned_query, "results": data})
         except Exception as e:
             st.error(f"Query execution error: {e}")
             if "editable_sql" not in st.session_state:
@@ -159,6 +161,7 @@ if user_input:
 # --- Chat History Display ---
 st.markdown("## 💬 Conversation")
 for message in st.session_state.messages:
+        
     if message["role"] == "system":
         continue
     with st.chat_message(message["role"]):
